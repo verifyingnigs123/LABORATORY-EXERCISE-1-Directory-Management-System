@@ -2,12 +2,19 @@
 #include <filesystem>
 #include <fstream>
 #include <string>
-
 using namespace std;
 
-void showMenu();
-void listAllfiles();
-void listFilesDirectory();
+void listFiles (conts string & path) {
+  cout << "Listing files in Directory": << path << endl;
+  try {
+     for ( conts auto & entry : directory_iterator(path)) {
+       cout << entry.path().filename().string () << endl;
+     }
+} catch (const filesystem_error & e) {
+   cout << "Error : " << e.what () << endl;
+   }
+}
+
 
 int main(){
 string Now
