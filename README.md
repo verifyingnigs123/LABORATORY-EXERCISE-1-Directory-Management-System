@@ -64,9 +64,25 @@ do {
              cin >> newDir;
              createDirectory (currentPath + "/" + newDir);
              break;
+          case 3: { 
+             string newPath;
+             cout << "Enter the path to change to:";
+             cin >> newPath;
+             creatDirectory (currentPath, newPath);
+          break;
+        }
+          case 4:{
+          cout << "Enter Exits"<<endl;
+          break;
+          }
+       default:{
+       cout<< "Invalide choice. Please try again"<< endl;
+       break;
+       }
+    }
 
-
-
-
+  }while(cioice !=4);
+          
+          
 reurtn 0;
 }
