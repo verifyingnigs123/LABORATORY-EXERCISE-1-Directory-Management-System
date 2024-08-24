@@ -33,14 +33,37 @@ void createDirectory (const string & path) {
      try{
           fs::current_path(newPath);
           currentPath = fs::current_path().string ();
-          cout << "Current working directory
-  
-
-     
+          cout << "Current working directory:" << currentPath << endl;
+       } catch (const fs:: filesystem_error& e ) {
+          cout << "Error:" << e.what() << endl;
+      }
+  }
+  void showMenu () {
+       cout << "\nMenu:\n";
+       cout << "1. List Files <<endl;
+       cout << "2. Creat Directory <<endl;
+       cout << "3. change Directory <<endl;
+       cout << "4.Exit <<endl;
+       cout << "Enter your choice:";
+   }   
 int main(){
-string Now
+string currentPath = fs::current_path().string();
 int choice;
 
+do {
+    showMenu();
+    cin >> choice;
+     switch (choice) {
+       case 1: {
+            listFiles(currentPath);
+            break;
+          }
+          case 2: {
+             string newDir;
+             cout << "Enter the name of the new directory:";
+             cin >> newDir;
+             createDirectory (currentPath + "/" + newDir);
+             break;
 
 
 
