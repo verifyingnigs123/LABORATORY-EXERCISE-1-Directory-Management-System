@@ -3,13 +3,13 @@
 #include <fstream>
 #include <string>
 
-name space fs = std::filesystem;
+namespace fs = std::filesystem;
 using namespace std;
 
-void listFiles (conts string & path) {
+void listFiles (const string & path) {
   cout << "Listing files in Directory": << path << endl;
   try {
-     for ( conts auto & entry :fs::directory_iterator(path)) {
+     for ( const auto & entry :fs::directory_iterator(path)) {
        cout << entry.path().filename().string () << endl;
      }
 } catch (const fs::filesystem_error & e) {
@@ -39,7 +39,7 @@ void createDirectory (const string & path) {
       }
   }
   void showMenu () {
-       cout << "\nMenu:\n";
+       cout << "\n Menu:\n";
        cout << "1. List Files <<endl;
        cout << "2. Creat Directory <<endl;
        cout << "3. change Directory <<endl;
