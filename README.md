@@ -1,5 +1,4 @@
 #include <iostream>
-#include <filesystem>
 #include <fstream>
 #include <string>
 
@@ -9,7 +8,7 @@ using namespace std;
 void listFiles (const string & path) {
   cout << "Listing files in Directory": << path << endl;
   try {
-     for ( const auto & entry :fs::directory_iterator(path)) {
+     for ( const auto & entry fs::directory_iterator(path)) {
        cout << entry.path().filename().string () << endl;
      }
 } catch (const fs::filesystem_error & e) {
@@ -24,7 +23,7 @@ void createDirectory (const string & path) {
 }  else {
          cout << "Failed to creat directory. It may already exist. << endl;
          }
-     }catch (const fs :: filesystem_error& e ) {
+     }catch (const fs¹:: filesystem_error& e ) {
          cout << "Error:" << e.what() << endl;
      }
   }
