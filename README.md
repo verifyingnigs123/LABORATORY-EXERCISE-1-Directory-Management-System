@@ -63,17 +63,17 @@ do {
              string newDir;
              cout << "Enter the name of the new directory:";
              cin >> newDir;
-             createDirectory (currentPath + "/" + newDir);
+             createDirectory (currentPath + "\\" + newDir);
              break;
           case 3: { 
              string newPath;
              cout << "Enter the path to change to:";
              cin >> newPath;
-             creatDirectory (currentPath, newPath);
+             chanceDirectory (currentPath, newPath);
           break;
         }
           case 4:{
-          cout << "Enter Exits"<<endl;
+          cout << "Exits..."<<endl;
           break;
           }
        default:{
