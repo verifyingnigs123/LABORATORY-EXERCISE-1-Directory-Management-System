@@ -17,15 +17,15 @@ do { cout <<findFileData.cFileName<<endl;
 }while (FileNextFile(hFind&findFileData)!=0);
 FindClose(hFind);
    }
-void createDirectory (const string & path) {
-    cout << "Creating Directory: " path << endl;
-    try {
-       if (fs::create_directory:(path)) {
+void createDirectory (const string& path) {
+    cout << "Creating Directory: "<< path << endl;
+    if (_mkdir(path.cstr())==O) {
           cout << "Directory created successfully."<<endl;
 }  else {
          cout << "Failed to creat directory. It may already exist. << endl;
          }
-     }catch (const fs:: filesystem_error& e ) {
+     }
+     catch (const fs:: filesystem_error& e ) {
          cout << "Error:" << e.what() << endl;
      }
   }
