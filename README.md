@@ -12,10 +12,11 @@ void listFiles (const string&path) {
        cout <<"Error could not open directory"<< endl;
        return;
      }
-} catch (const fs::filesystem_error & e) {
-   cout << "Error : " << e.what () << endl;
+     
+do { cout <<findFileData.cFileName<<endl;
+}while (FileNextFile(hFind&findFileData)!=0);
+FindClose(hFind);
    }
-}
 void createDirectory (const string & path) {
     cout << "Creating Directory: " path << endl;
     try {
