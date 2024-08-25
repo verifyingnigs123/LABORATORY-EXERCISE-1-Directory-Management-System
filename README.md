@@ -1,16 +1,16 @@
 #include <iostream>
-#include <filesystem>
-#include <fstream>
 #include <string>
-
-namespace fs = std::filesystem;
+#include <windowns.h>
+#include <direct.h>
 using namespace std;
 
-void listFiles (const string & path) {
-  cout << "Listing files in Directory": << path << endl;
-  try {
-     for ( const auto & entry fs::directory_iterator(path)) {
-       cout << entry.path().filename().string () << endl;
+void listFiles (const string&path) {
+  cout << "Listing files in Directory" << path << endl;
+  WIN32_FIND_DATA findFileData;
+  HANDLE hFind=FindFirstFile((path+"/*").c_str(),findFindData);
+  if(hFind==INVALID_HANDLE_VALUE){
+       cout <<"Error could not open directory"<< endl;
+       return;
      }
 } catch (const fs::filesystem_error & e) {
    cout << "Error : " << e.what () << endl;
