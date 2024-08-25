@@ -25,18 +25,13 @@ void createDirectory (const string& path) {
          cout << "Failed to creat directory. It may already exist. << endl;
          }
      }
-     catch (const fs:: filesystem_error& e ) {
-         cout << "Error:" << e.what() << endl;
-     }
-  }
-     void changeDirectory (string & currentPath, const string& newPath){
+void changeDirectory (string& currentPath,const string& newPath){
      cout << "Changing directory to:" << newPath << endl;
-     try{
-          fs::current_path(newPath);
-          currentPath = fs::current_path().string ();
-          cout << "Current working directory:" << currentPath << endl;
-       } catch (const fs:: filesystem_error& e ) {
-          cout << "Error:" << e.what() << endl;
+  if(_chdir(newPath.c_str())==0){
+  currentPath=newPath
+     cout << "Current working directory" << currentPath << endl;
+ } else {
+     cout << "Error:could not change directory"<< endl;
       }
   }
   void showMenu () {
@@ -48,7 +43,12 @@ void createDirectory (const string& path) {
        cout << "Enter your choice:";
    }   
 int main(){
-string currentPath = fs::current_path().string();
+   char cwd[1024];
+   if(!_getcwd(cwd,sizeof(cwd))){
+     cout<<"Error could not get current working directory" << endl;
+ return 1;
+} 
+  string currentPath = cwd;
 int choice;
 
 do {
