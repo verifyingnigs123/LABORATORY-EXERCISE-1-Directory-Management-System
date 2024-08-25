@@ -1,4 +1,5 @@
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <string>
 
@@ -23,7 +24,7 @@ void createDirectory (const string & path) {
 }  else {
          cout << "Failed to creat directory. It may already exist. << endl;
          }
-     }catch (const fs¹:: filesystem_error& e ) {
+     }catch (const fs:: filesystem_error& e ) {
          cout << "Error:" << e.what() << endl;
      }
   }
