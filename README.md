@@ -4,6 +4,8 @@
 #include <direct.h>
 using namespace std;
 
+//Function to list all files in the specified directory
+
 void listFiles (const string&path) {
   cout << "Listing files in Directory" << path << endl;
   WIN32_FIND_DATA findFileData;
@@ -17,6 +19,7 @@ do { cout <<findFileData.cFileName<<endl;
 }while (FileNextFile(hFind&findFileData)!=0);
 FindClose(hFind);
    }
+   //function to creatDirectory
 void createDirectory (const string& path) {
     cout << "Creating Directory: "<< path << endl;
     if (_mkdir(path.cstr())==O) {
@@ -25,6 +28,7 @@ void createDirectory (const string& path) {
          cout << "Failed to creat directory. It may already exist. << endl;
          }
      }
+     //function to the current working directory
 void changeDirectory (string& currentPath,const string& newPath){
      cout << "Changing directory to:" << newPath << endl;
   if(_chdir(newPath.c_str())==0){
@@ -34,6 +38,7 @@ void changeDirectory (string& currentPath,const string& newPath){
      cout << "Error:could not change directory"<< endl;
       }
   }
+  //function to display the menu
   void showMenu () {
        cout << "\n Menu:\n";
        cout << "1. List Files <<endl;
