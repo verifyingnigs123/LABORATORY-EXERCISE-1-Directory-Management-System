@@ -30,7 +30,7 @@ void createDirectory (const string& path) {
          }
      }
      //function to the current working directory
-void chanceDirectory (string& currentPath, const string& newPath){
+void changeDirectory (string& currentPath, const string& newPath){
      cout << "Changing directory to:" << newPath << endl;
      if(_chdir(newPath.c_str())==0){
           currentPath = newPath;
@@ -45,7 +45,7 @@ void chanceDirectory (string& currentPath, const string& newPath){
        cout << "1. List Files" <<endl;
        cout << "2. Creat Directory "<<endl;
        cout << "3. change Directory "<<endl;
-       cout << "4.Exit "<<endl;
+       cout << "4.Exit.."<<endl;
        cout << "Enter your choice:";
    }   
 int main(){
@@ -72,11 +72,12 @@ do {
              cin >> newDir;
              createDirectory (currentPath + "\\" + newDir);
              break;
+             }
           case 3: { 
              string newPath;
              cout << "Enter the path to change to:";
              cin >> newPath;
-             chanceDirectory (currentPath, newPath);
+             changeDirectory (currentPath, newPath);
           break;
         }
           case 4:{
