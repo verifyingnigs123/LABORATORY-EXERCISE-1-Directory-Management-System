@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <windowns.h>
+#include <windows.h>
 #include <direct.h>
 using namespace std;
 
@@ -9,7 +9,7 @@ using namespace std;
 void listFiles (const string& path) {
   cout << "Listing files in Directory" << path << endl;
   WIN32_FIND_DATA findFileData;
-  HANDLE hFind = FindFirstFile((path + "/*").c_str(),&findFindData);
+  HANDLE hFind = FindFirstFile((path + "//*").c_str(),&findFileData);
   if(hFind == INVALID_HANDLE_VALUE){
        cout <<"Error could not open directory"<< endl;
        return;
@@ -17,20 +17,20 @@ void listFiles (const string& path) {
      
    do { 
      cout <<findFileData.cFileName<<endl;
-} while (FileNextFile(hFind, &findFileData)!=0);
+} while (FindNextFile(hFind, &findFileData)!=0);
      FindClose(hFind);
    }
    //function to creatDirectory
 void createDirectory (const string& path) {
     cout << "Creating Directory: "<< path << endl;
-    if (_mkdir(path.cstr())==O) {
+    if (_mkdir(path.c_str()) == O ) {
           cout << "Directory created successfully."<<endl;
 }  else {
-         cout << "Failed to creat directory. It may already exist. << endl;
+         cout << "Failed to creat directory. It may already exist." << endl;
          }
      }
      //function to the current working directory
-void changeDirectory (string& currentPath, const string& newPath){
+void chanceDirectory (string& currentPath, const string& newPath){
      cout << "Changing directory to:" << newPath << endl;
      if(_chdir(newPath.c_str())==0){
           currentPath = newPath;
@@ -89,8 +89,8 @@ do {
        }
     }
 
-  }while(cioice !=4);
+  }while(choice !=4);
           
           
-reurtn 0;
+return 0;
 }
