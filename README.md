@@ -6,18 +6,19 @@ using namespace std;
 
 //Function to list all files in the specified directory
 
-void listFiles (const string&path) {
+void listFiles (const string& path) {
   cout << "Listing files in Directory" << path << endl;
   WIN32_FIND_DATA findFileData;
-  HANDLE hFind=FindFirstFile((path+"/*").c_str(),findFindData);
-  if(hFind==INVALID_HANDLE_VALUE){
+  HANDLE hFind = FindFirstFile((path + "/*").c_str(),&findFindData);
+  if(hFind == INVALID_HANDLE_VALUE){
        cout <<"Error could not open directory"<< endl;
        return;
      }
      
-do { cout <<findFileData.cFileName<<endl;
-}while (FileNextFile(hFind&findFileData)!=0);
-FindClose(hFind);
+   do { 
+     cout <<findFileData.cFileName<<endl;
+} while (FileNextFile(hFind, &findFileData)!=0);
+     FindClose(hFind);
    }
    //function to creatDirectory
 void createDirectory (const string& path) {
@@ -29,10 +30,10 @@ void createDirectory (const string& path) {
          }
      }
      //function to the current working directory
-void changeDirectory (string& currentPath,const string& newPath){
+void changeDirectory (string& currentPath, const string& newPath){
      cout << "Changing directory to:" << newPath << endl;
-  if(_chdir(newPath.c_str())==0){
-  currentPath=newPath
+     if(_chdir(newPath.c_str())==0){
+          currentPath = newPath;
      cout << "Current working directory" << currentPath << endl;
  } else {
      cout << "Error:could not change directory"<< endl;
@@ -59,6 +60,7 @@ int choice;
 do {
     showMenu();
     cin >> choice;
+    
      switch (choice) {
        case 1: {
             listFiles(currentPath);
@@ -81,9 +83,9 @@ do {
           cout << "Exits..."<<endl;
           break;
           }
-       default:{
-       cout<< "Invalide choice. Please try again"<< endl;
-       break;
+          default:{
+           cout<< "Invalide choice. Please try again"<< endl;
+           break;
        }
     }
 
