@@ -23,7 +23,7 @@ void listFiles (const string& path) {
    //function to creatDirectory
 void createDirectory (const string& path) {
     cout << "Creating Directory: "<< path << endl;
-    if (_mkdir(path.c_str()) == O ) {
+    if (_mkdir(path.c_str()) == 0 ) {
           cout << "Directory created successfully."<<endl;
 }  else {
          cout << "Failed to creat directory. It may already exist." << endl;
@@ -42,10 +42,10 @@ void chanceDirectory (string& currentPath, const string& newPath){
   //function to display the menu
   void showMenu () {
        cout << "\n Menu:\n";
-       cout << "1. List Files <<endl;
-       cout << "2. Creat Directory <<endl;
-       cout << "3. change Directory <<endl;
-       cout << "4.Exit <<endl;
+       cout << "1. List Files" <<endl;
+       cout << "2. Creat Directory "<<endl;
+       cout << "3. change Directory "<<endl;
+       cout << "4.Exit "<<endl;
        cout << "Enter your choice:";
    }   
 int main(){
